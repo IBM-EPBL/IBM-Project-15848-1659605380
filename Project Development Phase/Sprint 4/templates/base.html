@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<script>
+window.onpageshow = function(event){
+	if(event.persisted){
+		window.location.reload();
+	}
+};
+</script>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{% block title %}{% endblock %} - Job Recommender System</title>
+		<link rel="stylesheet" href={{url_for("static", filename="style.css")}}>
+	</head>
+	<body>
+		<header>
+			<ul>
+<!--				<li {% if page==0 %}class="active"{% endif %}><a href={{url_for("index")}}>Home</a></li>-->
+				<li class="dropdown {% if page==1 %}active{% endif %}">
+					<a href="javascript:void(0)" class="dropbtn">Login</a>
+					<div class="dropdown-content">
+						<a href={{url_for("login")}}>Applicant</a>
+						<a href={{url_for("loginAdmin")}}>Admin</a>
+					</div>
+				</li>
+				<li class="dropdown {% if page==2 %}active{% endif %}">
+					<a href="javascript:void(0)" class="dropbtn">Register</a>
+					<div class="dropdown-content">
+						<a href={{url_for("register")}}>Applicant</a>
+						<a href={{url_for("registerAdmin")}}>Admin</a>
+					</div>
+				</li>
+				<li {% if page==3 %}class="active"{% endif %}><a href={{url_for("viewJobs")}}>View Jobs</a></li>
+				<li {% if page==4 %}class="active"{% endif %}><a href={{url_for("appliedJobs")}}>Applied Jobs</a></li>
+				{% if session['user_id'] %}
+					<li style="float:right"><a href={{url_for("signout")}}>Sign out</a></li>
+				{% endif %}
+			</ul>
+		</header>
+		<section class="content">
+			{% block content %}{% endblock %}
+		</section>
+	</body>
+</html>

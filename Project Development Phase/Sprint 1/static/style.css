@@ -1,0 +1,143 @@
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+li {
+	float: left;
+}
+
+li a, .dropbtn {
+	display: inline-block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover:not(.active), .dropdown:hover .dropbtn {
+	background-color: #111;
+}
+
+li.dropdown {
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.active {
+	background-color: #04AA6D;
+}
+
+.dropdown:hover .active {
+	background-color: #15BB7E;
+}
+
+button {
+	font-size: 20px;
+	border-radius: 6px;
+	border: none;
+	background: #333;
+	color: white;
+	margin: 5px;
+}
+
+.input_block {
+	margin: 5px;
+}
+.input_block label {
+	display: block;
+	font-size: 20px;
+}
+.input_block input {
+	width: 93%;
+	padding: 0.625rem 10px;
+	margin-bottom: 1.875rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 1rem;
+}
+
+.box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 2.5rem;
+	box-sizing: border-box;
+	border: 1px solid #dadce0;
+	border-radius: 8px;
+	display: box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+form {
+	display: block;
+	margin-top: 0em;
+}
+
+button {
+	border: none;
+	outline: none;
+	color: #fff;
+	background-color: #1a73e8;
+	padding: 0.625rem 1.25rem;
+	border-radius: 0.312rem;
+	font-size: 1rem;
+	float: right;
+}
+
+table.applyTable {
+	position: absolute;
+	width: 50%;
+	margin-top: 50px;
+	left: 25%;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+th.applyTh {
+	width: 20%;
+	padding: 10px;
+	border: thin solid black;
+}
+
+td.applyTd {
+	width: 20%;
+	padding: 10px;
+	border: thin solid black;
+}
+
+tr.addRow td {
+	border: none;
+}

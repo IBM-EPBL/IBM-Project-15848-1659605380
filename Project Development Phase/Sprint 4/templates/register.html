@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Register {% endblock %}
+
+{% block content %}
+	<script>
+		{% if error is not none %}
+			alert("{{error}}");
+		{% endif %}
+		function validate() {
+			if(document.registerForm.password.value != document.registerForm.confirmPassword.value) {
+				alert("Passwords don't match");
+				return false;
+			}
+			return true;
+		}
+	</script>
+	<div class="box">
+		<form method="post" name="registerForm" onsubmit="return validate()">
+			<h2 style="text-align:center">Register</h2>
+			<div class="input_block">
+				<input type='email' name="username" placeholder="E-mail" required><br>
+			</div>
+			<div class="input_block">
+				<input name="password" type="password" placeholder="Password" required><br>
+			</div>
+			<div class="input_block">
+				<input name="confirmPassword" type="password" placeholder="Confirm Password" required><br>
+			</div>
+			<button type="submit" name="submit">Register</button>
+		</form>
+	</div>
+{% endblock %}

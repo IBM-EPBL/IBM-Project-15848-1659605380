@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}View Jobs {% endblock %}
+
+{% block content %}
+	{% if applied %}
+		<script>
+			alert("Applied successfully");
+		</script>
+	{% endif %}
+	<table class="applyTable">
+		<tr>
+			<th class="applyTh">Company</th>
+			<th class="applyTh">Job Title</th>
+			<th class="applyTh">Domain</th>
+			<th class="applyTh">Salary</th>
+			{% if not session['admin'] %}
+				<th class="applyTh"></th>
+			{% endif %}
+		</tr>
+		{% for job in session['jobs'] %}
+			<tr>
+				{% for i in range(1, 5) %}
+					<td class="applyTd">{{job[i]}}</td>
+				{% endfor %}
+				{% if not session['admin'] %}
+					<td class="applyTd">
+						<form method='post'>
+							<input type="hidden" name="job_id" value="{{job[0]}}">
+							<button type="submit">Apply</button>
+						</form>
+					</td>
+				{% endif %}
+			</tr>
+		{% endfor %}
+		{% if session['admin'] is true %}
+			<tr class="addRow">
+				<td class="applyTd"></td>
+				<td class="applyTd"></td>
+				<td class="applyTd">
+					<input type="button" value="Add" onclick="window.location='{{url_for("addJobs")}}'">
+				</td>
+				<td class="applyTd"></td>
+				<td class="applyTd"></td>
+			</tr>
+		{% endif %}
+	</table>
+{% endblock %}
